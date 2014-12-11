@@ -1,0 +1,14 @@
+#
+# This file contains additional build requirements that did not get picked up
+# automatically. One name per line, no whitespace.
+#
+lzo-dev
+pkgconfig(blkid)
+pkgconfig(uuid)
+pkgconfig(zlib)
+pkgconfig(com_err)
+pkgconfig(ext2fs)
+python-dev
+sed
+acl-dev
+zstd-dev

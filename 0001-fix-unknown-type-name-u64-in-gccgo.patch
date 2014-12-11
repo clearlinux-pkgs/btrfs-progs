@@ -1,0 +1,26 @@
+From d14595d20916e6e542ca17b1fe95bd3a71e9f841 Mon Sep 17 00:00:00 2001
+From: Julio Montes <julio.montes@intel.com>
+Date: Tue, 29 Mar 2016 14:52:34 -0600
+Subject: [PATCH] fix unknown type name 'u64' in gccgo
+
+Signed-off-by: Julio Montes <julio.montes@intel.com>
+---
+ ioctl.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ioctl.h b/ioctl.h
+index cab9ec2..7c80807 100644
+--- a/ioctl.h
++++ b/ioctl.h
+@@ -94,7 +94,7 @@ struct btrfs_ioctl_vol_args_v2 {
+ 	};
+ 	union {
+ 		char name[BTRFS_SUBVOL_NAME_MAX + 1];
+-		u64 devid;
++		__u64 devid;
+ 	};
+ };
+ 
+-- 
+2.1.0
+

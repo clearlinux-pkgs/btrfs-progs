@@ -1,0 +1,2 @@
+mkdir -p %{buildroot}/usr/include/linux
+install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h

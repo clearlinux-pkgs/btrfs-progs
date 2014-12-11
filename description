@@ -1,0 +1,3 @@
+Userspace utilities to manage btrfs filesystems. Btrfs is a copy on write (COW)
+filesystem for Linux aimed at implementing advanced features while focusing on
+fault tolerance, repair and easy administration.
