@@ -4,7 +4,7 @@
 #
 Name     : btrfs-progs
 Version  : 4.14
-Release  : 69
+Release  : 70
 URL      : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.14.tar.xz
 Source0  : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.14.tar.xz
 Summary  : No detailed summary available
