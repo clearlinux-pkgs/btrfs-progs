@@ -1,1 +1,1 @@
-Configure miss: REISERFS
+Configure miss: reiserfscore >= 3.6.27
