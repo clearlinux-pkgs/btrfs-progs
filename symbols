@@ -26,8 +26,6 @@ libbtrfs.so.0:btrfs_subvolid_resolve
 libbtrfs.so.0:crc32c_le
 libbtrfs.so.0:crc32c_optimization_init
 libbtrfs.so.0:lookup_path_rootid
-libbtrfs.so.0:path_cat
-libbtrfs.so.0:path_cat3
 libbtrfs.so.0:path_cat3_out
 libbtrfs.so.0:path_cat_out
 libbtrfs.so.0:rb_erase
