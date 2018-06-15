@@ -22,7 +22,7 @@ BuildRequires : pkgconfig(ext2fs)
 BuildRequires : pkgconfig(libzstd)
 BuildRequires : pkgconfig(uuid)
 BuildRequires : pkgconfig(zlib)
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : sed
 BuildRequires : setuptools
