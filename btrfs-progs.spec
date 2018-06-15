@@ -4,14 +4,16 @@
 #
 Name     : btrfs-progs
 Version  : 4.16.1
-Release  : 81
+Release  : 82
 URL      : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.16.1.tar.xz
 Source0  : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.16.1.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: btrfs-progs-bin
+Requires: btrfs-progs-config
 Requires: btrfs-progs-lib
+Requires: btrfs-progs-license
 BuildRequires : acl-dev
 BuildRequires : lzo-dev
 BuildRequires : pbr
@@ -22,7 +24,7 @@ BuildRequires : pkgconfig(ext2fs)
 BuildRequires : pkgconfig(libzstd)
 BuildRequires : pkgconfig(uuid)
 BuildRequires : pkgconfig(zlib)
-
+BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : sed
 BuildRequires : setuptools
@@ -36,9 +38,19 @@ fault tolerance, repair and easy administration.
 %package bin
 Summary: bin components for the btrfs-progs package.
 Group: Binaries
+Requires: btrfs-progs-config
+Requires: btrfs-progs-license
 
 %description bin
 bin components for the btrfs-progs package.
+
+
+%package config
+Summary: config components for the btrfs-progs package.
+Group: Default
+
+%description config
+config components for the btrfs-progs package.
 
 
 %package dev
@@ -55,9 +67,18 @@ dev components for the btrfs-progs package.
 %package lib
 Summary: lib components for the btrfs-progs package.
 Group: Libraries
+Requires: btrfs-progs-license
 
 %description lib
 lib components for the btrfs-progs package.
+
+
+%package license
+Summary: license components for the btrfs-progs package.
+Group: Default
+
+%description license
+license components for the btrfs-progs package.
 
 
 %prep
@@ -68,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1524676319
+export SOURCE_DATE_EPOCH=1529094313
 export CFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
@@ -77,8 +98,12 @@ export CXXFLAGS="$CXXFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1524676319
+export SOURCE_DATE_EPOCH=1529094313
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/btrfs-progs
+cp COPYING %{buildroot}/usr/share/doc/btrfs-progs/COPYING
+cp libbtrfsutil/COPYING.LESSER %{buildroot}/usr/share/doc/btrfs-progs/libbtrfsutil_COPYING.LESSER
+cp libbtrfsutil/COPYING %{buildroot}/usr/share/doc/btrfs-progs/libbtrfsutil_COPYING
 %make_install
 ## make_install_append content
 mkdir -p %{buildroot}/usr/include/linux
@@ -100,6 +125,10 @@ install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 /usr/bin/btrfstune
 /usr/bin/fsck.btrfs
 /usr/bin/mkfs.btrfs
+
+%files config
+%defattr(-,root,root,-)
+/usr/lib/udev/rules.d/64-btrfs-dm.rules
 
 %files dev
 %defattr(-,root,root,-)
@@ -131,3 +160,9 @@ install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 /usr/lib64/libbtrfs.so.0.1
 /usr/lib64/libbtrfsutil.so.1
 /usr/lib64/libbtrfsutil.so.1.0.0
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/btrfs-progs/COPYING
+/usr/share/doc/btrfs-progs/libbtrfsutil_COPYING
+/usr/share/doc/btrfs-progs/libbtrfsutil_COPYING.LESSER
