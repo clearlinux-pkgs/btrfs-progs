@@ -8,7 +8,6 @@ pkgconfig(uuid)
 pkgconfig(zlib)
 pkgconfig(com_err)
 pkgconfig(ext2fs)
-python-dev
 sed
 acl-dev
 zstd-dev

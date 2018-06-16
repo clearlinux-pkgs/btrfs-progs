@@ -4,7 +4,7 @@
 #
 Name     : btrfs-progs
 Version  : 4.16.1
-Release  : 82
+Release  : 83
 URL      : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.16.1.tar.xz
 Source0  : https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.16.1.tar.xz
 Summary  : No detailed summary available
@@ -24,7 +24,6 @@ BuildRequires : pkgconfig(ext2fs)
 BuildRequires : pkgconfig(libzstd)
 BuildRequires : pkgconfig(uuid)
 BuildRequires : pkgconfig(zlib)
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : sed
 BuildRequires : setuptools
@@ -89,7 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1529094313
+export SOURCE_DATE_EPOCH=1529118596
 export CFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic-interposition "
@@ -98,7 +97,7 @@ export CXXFLAGS="$CXXFLAGS -Os -fdata-sections -ffunction-sections -fno-semantic
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1529094313
+export SOURCE_DATE_EPOCH=1529118596
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/btrfs-progs
 cp COPYING %{buildroot}/usr/share/doc/btrfs-progs/COPYING
