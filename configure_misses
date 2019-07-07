@@ -1,1 +1,2 @@
 Configure miss: reiserfscore >= 3.6.27
+Configure miss: common/format-output.c:283:11: warning: format not a string literal and no format arguments [-Wformat-security]
