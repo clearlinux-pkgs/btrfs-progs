@@ -4,3 +4,4 @@ acl-dev
 lzo-dev
 sed
 zstd-dev
+python3-dev
