@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : btrfs-progs
-Version  : 6.2.2
-Release  : 134
-URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.2.2.tar.xz
-Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.2.2.tar.xz
+Version  : 6.3
+Release  : 135
+URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.3.tar.xz
+Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.3.tar.xz
 Summary  : libbtrfsutil library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -88,15 +88,15 @@ license components for the btrfs-progs package.
 
 
 %prep
-%setup -q -n btrfs-progs-v6.2.2
-cd %{_builddir}/btrfs-progs-v6.2.2
+%setup -q -n btrfs-progs-v6.3
+cd %{_builddir}/btrfs-progs-v6.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680633074
+export SOURCE_DATE_EPOCH=1682604942
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,7 +109,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -fdebug-types-section -femit-
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1680633074
+export SOURCE_DATE_EPOCH=1682604942
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btrfs-progs
 cp %{_builddir}/btrfs-progs-v%{version}/COPYING %{buildroot}/usr/share/package-licenses/btrfs-progs/ef1bcf369e4124b5f2558fefee17972f41b76cab || :
