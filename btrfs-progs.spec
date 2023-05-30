@@ -5,7 +5,7 @@
 #
 Name     : btrfs-progs
 Version  : 6.3.1
-Release  : 136
+Release  : 137
 URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.3.1.tar.xz
 Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.3.1.tar.xz
 Summary  : libbtrfsutil library
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685397546
+export SOURCE_DATE_EPOCH=1685486126
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -122,7 +122,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1685397546
+export SOURCE_DATE_EPOCH=1685486126
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btrfs-progs
 cp %{_builddir}/btrfs-progs-v%{version}/COPYING %{buildroot}/usr/share/package-licenses/btrfs-progs/ef1bcf369e4124b5f2558fefee17972f41b76cab || :
@@ -148,7 +148,6 @@ install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 /V3/usr/bin/btrfs-image
 /V3/usr/bin/btrfs-map-logical
 /V3/usr/bin/btrfs-select-super
-/V3/usr/bin/btrfsck
 /V3/usr/bin/btrfstune
 /V3/usr/bin/mkfs.btrfs
 /usr/bin/btrfs
@@ -169,8 +168,6 @@ install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libbtrfs.so
-/V3/usr/lib64/libbtrfsutil.so
 /usr/include/btrfs/ctree.h
 /usr/include/btrfs/ioctl.h
 /usr/include/btrfs/kerncompat.h
@@ -189,9 +186,7 @@ install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libbtrfs.so.0
 /V3/usr/lib64/libbtrfs.so.0.1
-/V3/usr/lib64/libbtrfsutil.so.1
 /V3/usr/lib64/libbtrfsutil.so.1.2.0
 /usr/lib64/libbtrfs.so.0
 /usr/lib64/libbtrfs.so.0.1
