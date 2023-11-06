@@ -6,10 +6,10 @@
 # autospec commit: 250a666
 #
 Name     : btrfs-progs
-Version  : 6.5.3
-Release  : 143
-URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.5.3.tar.xz
-Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.5.3.tar.xz
+Version  : 6.6.1
+Release  : 144
+URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.1.tar.xz
+Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.1.tar.xz
 Summary  : libbtrfsutil library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -90,10 +90,10 @@ license components for the btrfs-progs package.
 
 
 %prep
-%setup -q -n btrfs-progs-v6.5.3
-cd %{_builddir}/btrfs-progs-v6.5.3
+%setup -q -n btrfs-progs-v6.6.1
+cd %{_builddir}/btrfs-progs-v6.6.1
 pushd ..
-cp -a btrfs-progs-v6.5.3 buildavx2
+cp -a btrfs-progs-v6.6.1 buildavx2
 popd
 
 %build
@@ -101,7 +101,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1698014295
+export SOURCE_DATE_EPOCH=1699281751
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -144,7 +144,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1698014295
+export SOURCE_DATE_EPOCH=1699281751
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btrfs-progs
 cp %{_builddir}/btrfs-progs-v%{version}/COPYING %{buildroot}/usr/share/package-licenses/btrfs-progs/ef1bcf369e4124b5f2558fefee17972f41b76cab || :

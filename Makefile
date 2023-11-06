@@ -1,5 +1,5 @@
 PKG_NAME := btrfs-progs
-URL = https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.5.3.tar.xz
+URL = https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.1.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
