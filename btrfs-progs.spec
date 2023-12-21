@@ -6,10 +6,10 @@
 # autospec commit: c1050fe
 #
 Name     : btrfs-progs
-Version  : 6.6.2
-Release  : 146
-URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.2.tar.xz
-Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.2.tar.xz
+Version  : 6.6.3
+Release  : 147
+URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.3.tar.xz
+Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.3.tar.xz
 Summary  : libbtrfsutil library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -23,6 +23,7 @@ BuildRequires : lzo-dev
 BuildRequires : pkgconfig(blkid)
 BuildRequires : pkgconfig(com_err)
 BuildRequires : pkgconfig(ext2fs)
+BuildRequires : pkgconfig(libcrypto)
 BuildRequires : pkgconfig(libgcrypt)
 BuildRequires : pkgconfig(libkcapi)
 BuildRequires : pkgconfig(libsodium)
@@ -90,10 +91,10 @@ license components for the btrfs-progs package.
 
 
 %prep
-%setup -q -n btrfs-progs-v6.6.2
-cd %{_builddir}/btrfs-progs-v6.6.2
+%setup -q -n btrfs-progs-v6.6.3
+cd %{_builddir}/btrfs-progs-v6.6.3
 pushd ..
-cp -a btrfs-progs-v6.6.2 buildavx2
+cp -a btrfs-progs-v6.6.3 buildavx2
 popd
 
 %build
@@ -101,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701938734
+export SOURCE_DATE_EPOCH=1703173080
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -144,7 +145,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701938734
+export SOURCE_DATE_EPOCH=1703173080
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btrfs-progs
 cp %{_builddir}/btrfs-progs-v%{version}/COPYING %{buildroot}/usr/share/package-licenses/btrfs-progs/ef1bcf369e4124b5f2558fefee17972f41b76cab || :
