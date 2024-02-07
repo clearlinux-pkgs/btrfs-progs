@@ -7,7 +7,7 @@
 #
 Name     : btrfs-progs
 Version  : 6.7
-Release  : 149
+Release  : 150
 URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.tar.xz
 Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.tar.xz
 Summary  : libbtrfsutil library
