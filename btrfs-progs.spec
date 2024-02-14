@@ -6,10 +6,10 @@
 # autospec commit: da8b975
 #
 Name     : btrfs-progs
-Version  : 6.7
-Release  : 151
-URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.tar.xz
-Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.tar.xz
+Version  : 6.7.1
+Release  : 152
+URL      : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.1.tar.xz
+Source0  : https://mirrors.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.1.tar.xz
 Summary  : libbtrfsutil library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -91,13 +91,10 @@ license components for the btrfs-progs package.
 
 
 %prep
-%setup -q -n btrfs-progs-v6.7
-cd %{_builddir}/btrfs-progs-v6.7
+%setup -q -n btrfs-progs-v6.7.1
+cd %{_builddir}/btrfs-progs-v6.7.1
 pushd ..
-cp -a btrfs-progs-v6.7 buildavx2
-popd
-pushd ..
-cp -a btrfs-progs-v6.7 buildapx
+cp -a btrfs-progs-v6.7.1 buildavx2
 popd
 
 %build
@@ -105,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707414071
+export SOURCE_DATE_EPOCH=1707921940
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -135,18 +132,6 @@ LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
 %configure --disable-static --disable-documentation
 make  %{?_smp_mflags}
 popd
-unset PKG_CONFIG_PATH
-pushd ../buildapx/
-GOAMD64=v3
-CC="gcc-14"
-CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -mapxf -mavx10.1 "
-LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
-%configure --host=x86_64-clr-linux-gnu --disable-static --disable-documentation
-make  %{?_smp_mflags}
-popd
 %install
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -162,7 +147,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1707414071
+export SOURCE_DATE_EPOCH=1707921940
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btrfs-progs
 cp %{_builddir}/btrfs-progs-v%{version}/COPYING %{buildroot}/usr/share/package-licenses/btrfs-progs/ef1bcf369e4124b5f2558fefee17972f41b76cab || :
@@ -172,10 +157,6 @@ GOAMD64=v3
 pushd ../buildavx2/
 %make_install_v3
 popd
-GOAMD64=v3
-pushd ../buildapx/
-%make_install_va
-popd
 GOAMD64=v2
 %make_install
 ## install_append content
@@ -183,7 +164,6 @@ mkdir -p %{buildroot}/usr/include/linux
 install -m 0644 kernel-lib/sizes.h %{buildroot}/usr/include/linux/sizes.h
 ## install_append end
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
-/usr/bin/elf-move.py apx %{buildroot}-va %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
