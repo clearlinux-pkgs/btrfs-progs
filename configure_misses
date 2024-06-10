@@ -1,2 +1,4 @@
-Configure miss: REISERFS
-Configure miss: REISERFS
+Configure miss:  option for large files
+Configure miss:  option for large files
+Configure miss: reiserfscore >= 3.6.27
+Configure miss: reiserfscore >= 3.6.27
